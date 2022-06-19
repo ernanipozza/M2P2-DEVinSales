@@ -39,7 +39,7 @@ public class SqlContext : DbContext
 
         modelBuilder.Entity<State>().HasData(StateSeed.Seed);
 
-        modelBuilder.Entity<City>().HasData(CitySeed.Seed());
+        //modelBuilder.Entity<City>().HasData(CitySeed.Seed());
 
         modelBuilder.Entity<Address>().HasData(AddressSeed.Seed);
 
@@ -92,6 +92,5 @@ public class SqlContext : DbContext
         city_price.HasKey(x => x.Id);
         city_price.Property(x => x.Id).HasColumnName("id").HasColumnType("int").IsRequired();
         city_price.Property(x => x.BasePrice).HasColumnName("base_price").HasColumnType("decimal").IsRequired();
-
     }
 }
