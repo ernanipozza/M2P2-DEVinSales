@@ -9,7 +9,7 @@ namespace DevInSales.Controllers
 {
     [Route("api/authentication")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class AuthenticationController : ControllerBase
     {
         private readonly SqlContext _context;

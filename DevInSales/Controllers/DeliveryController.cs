@@ -8,7 +8,7 @@ namespace DevInSales.Controllers
 {
     [Route("api/delivery")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class DeliveryController : ControllerBase
     {
         private readonly SqlContext _context;
@@ -30,7 +30,7 @@ namespace DevInSales.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        //[Authorize(Roles = ("Usuario, Gerente, Administrador"))]
+        [Authorize(Roles = ("Usuario, Gerente, Administrador"))]
         public async Task<ActionResult<ICollection<Delivery>>> GetDelivery(int address_id, int order_id)
         {
             var deliverys = _context.Delivery.Include(x => x.Order).Include(x => x.Address).ToList();
